@@ -1,6 +1,6 @@
-# RAIL
+# JM2D
 
-This is the repository that contains source code for the "Joint Model-based Model-free Diffusion for Planning with Constraints" [website](https://jm2d.github.io/). 
+This is the repository that contains source code for the "Joint Model-based Model-free Diffusion for Planning with Constraints" [website](https://jm2d-corl25.github.io/). 
 
 If you find JM2D useful for your work, please cite:
 ```
