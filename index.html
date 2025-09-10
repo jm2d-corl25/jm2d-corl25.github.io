@@ -181,9 +181,10 @@
                 type="video/mp4">
       </video>
       <h2 class="subtitle">
-        [Need changed] How do we bridge the gap between <em style="color:rgb(92, 152, 92)">what robots can do</em> and <em style="color:rgb(92, 152, 92)">what they can safely do </em>?
-        We introduce <span class = "dnerf"> RAIL </span>: a safety-filter framework for Imitation Learning (IL) policy leveraging reachability analysis to ensure robot safety while maximizing robot capability.
-      </h2>
+        <p>
+        <b>How do we bridge the gap between what robots can achieve and what they can safely execute?</b>
+        We propose <b>Joint Model-based Model-free Diffusion (JM2D)</b>: a unified diffusion framework that combines the expressiveness of model-free planning with the safety guarantees of model-based optimization, enabling robots to achieve both <b>performance</b> and <b>safety</b>.
+      </p>
     </div>
   </div>
 </section>
@@ -268,11 +269,12 @@
     <h4 class="subtitle is-3 has-text-centered"> A unified diffusion framework for planning and optimization </h4>
     <div class="content mb-5">
       <p>
-        <b> Key Idea:</b> Recast a planning-and-optimization into a sampling from joint distribution defined by Interaction Potential.
-        In robotics, this interaction potential is usually non-differentiable!
+        <b>Key Idea:</b> Recast planning-and-optimization as sampling from a joint distribution defined by 
+        an interaction potential. In robotics, this interaction potential is often <i>non-differentiable</i>!
       </p>
       <p>
-        <b> Key Idea:</b> We use Monte-Carlo approximation of score of joint distribution that only needs 0-th order information.
+        <b>Key Idea:</b> Use Monte-Carlo approximation of the joint score, requiring only 
+        zero-th order information. This enables diffusion to reason jointly about goals and safety.
       </p>
     </div>
   </div>
@@ -282,29 +284,32 @@
 <!-- Placeholder for maze video carousel -->
 <!-- Fun Idea: can user select initial position, goal? -->
 <section class="section is-light is-small">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered"> What can JM2D do?</h2>
-      <div class="content mb-5">
-        <h2 class="title is-4"> (1) JM2D increase system performance under strict safety guarantee</h2>
-        <p style="margin-bottom: 20px;">          
-      Text 1
-    </p>
-    
-    <p style="margin-bottom: 20px;">
-      Text 2
-    </p>
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered"> What can JM2D do?</h2>
+    <div class="content mb-5">
+      <h2 class="title is-4"> (1) JM2D increases system performance under strict safety guarantee</h2>
+      <p style="margin-bottom: 20px;">          
+        JM2D aligns goal achievement with real-time safety constraints. 
+        In the 2D maze environment, naive diffusion quickly fails when unseen obstacles are introduced.
+      </p>
+      <p style="margin-bottom: 20px;">
+        By sampling plans and backup safety corrections together, JM2D achieves higher safe success rates, 
+        fewer interventions, and faster completion times compared to sequential or Gibbs sampling baselines.
+      </p>
 
-    <div class="columns is-centered">
-      <div class="column">
-        <div class="content">
-          <h2 class="title is-5"> Title 1</h2>
-          <p>
-            Text 3
-          </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/video1.mp4"
-                    type="video/mp4">
-          </video>
+      <div class="columns is-centered">
+        <div class="column">
+          <div class="content">
+            <h2 class="title is-5"> Safer Navigation in Complex Mazes</h2>
+            <p>
+              A robot must reach the goal without colliding with walls, even when wall boundaries are 
+              padded at inference time. JM2D adapts gracefully, maintaining both safety and efficiency.
+            </p>
+            <video id="maze-demo" autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/video1.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
         </div>
       </div>
     </div>
@@ -315,22 +320,25 @@
   <div class="container is-max-desktop">
     <h2 class="title is-4">(2) JM2D generalizes Conditional Generation and Model-based Diffusion</h2>
     <p style="margin-bottom: 20px;">          
-      Text 1
+      Conditional diffusion methods impose external constraints after sampling. 
+      Model-based diffusion ensures constraints but struggles with task completion. 
     </p>
     
     <p style="margin-bottom: 20px;">
-      Text 2
+      JM2D unifies both approaches by directly sampling from their joint distribution, 
+      maintaining compatibility between task objectives and safety constraints throughout the generation process.
     </p>
 
     <div class="columns is-centered">
       <div class="column">
         <div class="content">
-          <h2 class="title is-5"> Title 1</h2>
+          <h2 class="title is-5"> Unified Diffusion Framework</h2>
           <p>
-            Text 3
+            JM2D reduces intervention rates and improves plan quality, 
+            showing how joint sampling can outperform both conditional and model-based diffusion individually.
           </p>
-          <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/video1.mp4"
+          <video id="conditional-demo" autoplay controls muted loop playsinline height="100%">
+            <source src="./static/videos/video2.mp4"
                     type="video/mp4">
           </video>
         </div>
@@ -343,7 +351,10 @@
   <div class="container is-max-desktop">
     <h2 class="title is-4">(3) JM2D generalizes to Joint Model-based Model-free Generation (JM2G)</h2>
     <p> 
-
+      Beyond motion planning, JM2D extends naturally to broader generative modeling tasks. 
+      This perspective—Joint Model-based Model-free Generation (JM2G)—opens possibilities in 
+      areas like safe trajectory design, interactive decision making, and constrained 
+      generative AI where feasibility and creativity must coexist. 
     </p>
   </div>
 </section>
